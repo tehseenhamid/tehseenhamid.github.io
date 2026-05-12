@@ -1,528 +1,623 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Tehseen Hamid — Frontend Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mr.Seen | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Noise overlay -->
+  <!-- Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Noise -->
   <div class="noise"></div>
 
-  <!-- Cursor (desktop only) -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursor-follower"></div>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-logo">
+      Mr<span class="dot">.</span>Seen
+    </div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-logo">TH<span class="dot">.</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span>
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </nav>
 
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobile-nav">
-    <div class="mobile-nav-logo">TH<span class="dot">.</span></div>
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+
+    <div class="mobile-nav-logo">
+      Mr<span class="dot">.</span>Seen
+    </div>
+
     <ul>
-      <li><a href="#about" onclick="closeMobileNav()">About</a></li>
-      <li><a href="#experience" onclick="closeMobileNav()">Experience</a></li>
-      <li><a href="#projects" onclick="closeMobileNav()">Projects</a></li>
-      <li><a href="#skills" onclick="closeMobileNav()">Skills</a></li>
-      <li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+
     <div class="mobile-nav-socials">
-      <a href="https://www.linkedin.com/in/tehseen-hamid-088399322/" target="_blank" aria-label="LinkedIn">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="https://github.com/tehseenhamid" target="_blank" aria-label="GitHub">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      <a href="https://wa.me/923276099669" target="_blank" aria-label="WhatsApp">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-      </a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-particles" id="particles"></div>
-    <div class="hero-bg-text">FRONTEND</div>
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+
+    <div class="hero-bg-text">PORTFOLIO</div>
+
     <div class="hero-content">
+
       <div class="hero-tag">
         <span class="tag-dot"></span>
-        Available for opportunities
+        Available For Work
       </div>
+
       <h1 class="hero-name">
-        <span class="line-wrap"><span class="reveal-line">Tehseen</span></span>
-        <span class="line-wrap"><span class="reveal-line delay-1"><em>Hamid</em></span></span>
+        <span class="line-wrap">
+          <span class="reveal-line delay-1">
+            Muhammad
+          </span>
+        </span>
+
+        <span class="line-wrap">
+          <span class="reveal-line delay-2">
+            <em>Tehseen</em>
+          </span>
+        </span>
       </h1>
-      <p class="hero-role">
-        <span class="reveal-line delay-2">Frontend Developer &amp; Software Engineering Student</span>
+
+      <p class="hero-role reveal-line delay-3">
+        Software Engineering Student • Frontend Developer • Content Creator
       </p>
-      <p class="hero-location reveal-line delay-3">
-        <span class="loc-icon">📍</span> Attock, Punjab, Pakistan
-      </p>
-      <div class="hero-actions reveal-line delay-4">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
+
+      <div class="hero-location reveal-line delay-4">
+        <i class="fa-solid fa-location-dot"></i>
+        Rawalpindi, Pakistan
       </div>
-      <div class="hero-socials reveal-line delay-5">
-        <a href="https://www.linkedin.com/in/tehseen-hamid-088399322/" target="_blank" class="social-pill" aria-label="LinkedIn">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
+
+      <div class="hero-actions reveal-line delay-5">
+        <a href="#projects" class="btn-primary">
+          View Projects
         </a>
-        <a href="https://github.com/tehseenhamid" target="_blank" class="social-pill" aria-label="GitHub">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+
+        <a href="#contact" class="btn-outline">
+          Contact Me
+        </a>
+      </div>
+
+      <!-- SOCIALS -->
+      <div class="hero-socials reveal-line delay-5">
+
+        <a href="#" class="social-pill">
+          <i class="fab fa-github"></i>
           GitHub
         </a>
-        <a href="https://wa.me/923276099669" target="_blank" class="social-pill social-pill--wa" aria-label="WhatsApp">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+
+        <a href="#" class="social-pill">
+          <i class="fab fa-linkedin"></i>
+          LinkedIn
+        </a>
+
+        <a href="#" class="social-pill social-pill--wa">
+          <i class="fab fa-whatsapp"></i>
           WhatsApp
         </a>
+
       </div>
+
     </div>
+
+    <!-- SCROLL -->
     <div class="hero-scroll">
-      <span>Scroll</span>
       <div class="scroll-line"></div>
+      Scroll Down
     </div>
-    <div class="hero-badge">
-      <div class="badge-circle">
-        <svg viewBox="0 0 100 100" class="badge-svg">
-          <defs>
-            <path id="circle-text" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
-          </defs>
-          <text font-size="10.5" fill="currentColor" letter-spacing="2.5">
-            <textPath href="#circle-text">COMSATS UNIVERSITY • SOFTWARE ENGINEERING •</textPath>
-          </text>
-        </svg>
-        <span class="badge-center">SE</span>
-      </div>
-    </div>
+
   </section>
 
-  <!-- About -->
-  <section class="about section" id="about">
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+
     <div class="container">
-      <div class="section-label">01 / About</div>
+
+      <div class="section-label">
+        About Me
+      </div>
+
+      <h2 class="section-heading">
+        Passionate about building <em>modern</em> digital experiences.
+      </h2>
+
       <div class="about-grid">
-        <div class="about-text">
-          <h2 class="section-heading">Crafting digital<br /><em>experiences</em> that matter.</h2>
-          <p>Passionate Software Engineering student at COMSATS University Islamabad, building responsive, user-friendly, and visually stunning web applications. Currently interning at Nexigo Solutions, turning designs into living, breathing interfaces.</p>
-          <p>I bridge the gap between design and code — obsessed with clean UI, smooth interactions, and interfaces that just <em>feel right</em>.</p>
+
+        <!-- LEFT -->
+        <div class="about-text fade-in-up">
+
+          <p>
+            I am a Software Engineering student passionate about creating
+            modern websites, responsive user interfaces, and visually
+            appealing digital experiences.
+          </p>
+
+          <p>
+            I also create LinkedIn content, AI-generated YouTube content,
+            and work on frontend development projects using modern
+            technologies.
+          </p>
+
           <div class="about-stats">
-            <div class="stat">
-              <span class="stat-num" data-suffix="+">4</span>
-              <span class="stat-label">Projects Built</span>
+
+            <div>
+              <span class="stat-num">15+</span>
+              <span class="stat-label">Projects</span>
             </div>
-            <div class="stat">
-              <span class="stat-num" data-suffix="">2</span>
-              <span class="stat-label">Internships</span>
+
+            <div>
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Years Learning</span>
             </div>
-            <div class="stat">
-              <span class="stat-num" data-suffix="+">3</span>
-              <span class="stat-label">Certifications</span>
+
+            <div>
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Passion</span>
             </div>
+
           </div>
+
         </div>
-        <div class="about-visual">
+
+        <!-- RIGHT -->
+        <div class="about-visual fade-in-up">
+
           <div class="av-card">
-            <!-- Dummy Profile Picture SVG -->
+
+            <!-- IMAGE -->
             <div class="av-photo">
-              <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="profile-svg">
-                <defs>
-                  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1a1a1a"/>
-                    <stop offset="100%" style="stop-color:#222222"/>
-                  </linearGradient>
-                  <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#c8956c"/>
-                    <stop offset="100%" style="stop-color:#b07d55"/>
-                  </linearGradient>
-                  <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#e8d5a3"/>
-                    <stop offset="100%" style="stop-color:#c4a96b"/>
-                  </linearGradient>
-                  <clipPath id="circle">
-                    <circle cx="60" cy="60" r="60"/>
-                  </clipPath>
-                </defs>
-                <!-- Background -->
-                <circle cx="60" cy="60" r="60" fill="url(#bgGrad)"/>
-                <!-- Subtle grid pattern -->
-                <g opacity="0.05">
-                  <line x1="20" y1="0" x2="20" y2="120" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="40" y1="0" x2="40" y2="120" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="60" y1="0" x2="60" y2="120" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="80" y1="0" x2="80" y2="120" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="100" y1="0" x2="100" y2="120" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="0" y1="20" x2="120" y2="20" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="0" y1="40" x2="120" y2="40" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="0" y1="60" x2="120" y2="60" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="0" y1="80" x2="120" y2="80" stroke="#e8d5a3" stroke-width="0.5"/>
-                  <line x1="0" y1="100" x2="120" y2="100" stroke="#e8d5a3" stroke-width="0.5"/>
-                </g>
-                <g clip-path="url(#circle)">
-                  <!-- Shirt/Body -->
-                  <ellipse cx="60" cy="108" rx="38" ry="22" fill="#1e1e1e"/>
-                  <ellipse cx="60" cy="96" rx="28" ry="20" fill="url(#shirtGrad)" opacity="0.9"/>
-                  <!-- Neck -->
-                  <rect x="52" y="72" width="16" height="14" rx="6" fill="url(#skinGrad)"/>
-                  <!-- Head -->
-                  <ellipse cx="60" cy="58" rx="22" ry="24" fill="url(#skinGrad)"/>
-                  <!-- Hair -->
-                  <ellipse cx="60" cy="38" rx="22" ry="14" fill="#1a0f0a"/>
-                  <path d="M38 52 Q36 40 40 34 Q50 25 60 24 Q70 25 80 34 Q84 40 82 52" fill="#1a0f0a"/>
-                  <!-- Ears -->
-                  <ellipse cx="38.5" cy="58" rx="3.5" ry="4.5" fill="url(#skinGrad)"/>
-                  <ellipse cx="81.5" cy="58" rx="3.5" ry="4.5" fill="url(#skinGrad)"/>
-                  <!-- Eyes -->
-                  <ellipse cx="51" cy="57" rx="4" ry="4.5" fill="white"/>
-                  <ellipse cx="69" cy="57" rx="4" ry="4.5" fill="white"/>
-                  <circle cx="51" cy="57" r="2.5" fill="#2a1a0e"/>
-                  <circle cx="69" cy="57" r="2.5" fill="#2a1a0e"/>
-                  <circle cx="52" cy="56" r="0.8" fill="white" opacity="0.8"/>
-                  <circle cx="70" cy="56" r="0.8" fill="white" opacity="0.8"/>
-                  <!-- Eyebrows -->
-                  <path d="M46 51.5 Q51 49.5 56 51.5" stroke="#1a0f0a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                  <path d="M64 51.5 Q69 49.5 74 51.5" stroke="#1a0f0a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                  <!-- Nose -->
-                  <path d="M59 60 Q57 66 54 68 Q60 70 66 68 Q63 66 61 60" fill="#a87050" opacity="0.5"/>
-                  <!-- Smile -->
-                  <path d="M52 72 Q60 77 68 72" stroke="#8a5a3a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                  <!-- Collar -->
-                  <path d="M45 86 L60 96 L75 86 L78 90 L60 103 L42 90 Z" fill="#d4c090" opacity="0.8"/>
-                </g>
-                <!-- Accent ring -->
-                <circle cx="60" cy="60" r="58" fill="none" stroke="#e8d5a3" stroke-width="0.8" opacity="0.3"/>
-              </svg>
+
+              <img
+                src="mr.jpeg"
+                alt="Muhammad Tehseen"
+                class="profile-svg"
+                style="
+                  width: 250px;
+                  height: 320px;
+                  object-fit: cover;
+                  border-radius: 24px;
+                "
+              />
+
               <div class="av-status">
                 <span class="status-dot"></span>
-                <span>Open to Work</span>
+                Online
               </div>
+
             </div>
+
             <div class="av-info">
-              <div class="av-name">Tehseen Hamid</div>
-              <div class="av-title">Frontend Developer</div>
-              <div class="av-tags">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span>
+
+              <h3 class="av-name">
+                Muhammad Tehseen
+              </h3>
+
+              <div class="av-title">
+                Software Engineer Student
               </div>
-            </div>
-            <div class="av-orbs">
-              <div class="orb orb-1"></div>
-              <div class="orb orb-2"></div>
-            </div>
-          </div>
-          <!-- Social links card replacing XEEN -->
-          <div class="av-socials">
-            <a href="https://www.linkedin.com/in/tehseen-hamid-088399322/" target="_blank" class="av-social-item">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              <span>LinkedIn</span>
-              <span class="av-social-handle">Tehseen Hamid</span>
-            </a>
-            <a href="https://github.com/tehseenhamid" target="_blank" class="av-social-item">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              <span>GitHub</span>
-              <span class="av-social-handle">tehseenhamid</span>
-            </a>
-            <a href="https://wa.me/923276099669" target="_blank" class="av-social-item av-social-item--wa">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              <span>WhatsApp</span>
-              <span class="av-social-handle">+92 327 609 9669</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Experience -->
-  <section class="experience section" id="experience">
-    <div class="container">
-      <div class="section-label">02 / Experience</div>
-      <h2 class="section-heading">Where I've<br /><em>worked.</em></h2>
-      <div class="timeline">
+              <div class="av-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>UI/UX</span>
+              </div>
 
-        <div class="timeline-item">
-          <div class="tl-marker">
-            <div class="tl-dot"></div>
-            <div class="tl-line"></div>
-          </div>
-          <div class="tl-content">
-            <div class="tl-meta">
-              <span class="tl-date">Sep 2025 — Dec 2025</span>
-              <span class="tl-type">Internship</span>
             </div>
-            <h3 class="tl-role">Frontend Developer Intern</h3>
-            <div class="tl-company">Nexigo Solutions</div>
-            <ul class="tl-list">
-              <li>Developed responsive web interfaces using HTML, CSS, and JavaScript</li>
-              <li>Improved website UI/UX and frontend responsiveness</li>
-              <li>Collaborated with team members on frontend implementation</li>
-              <li>Optimized layouts for mobile and desktop compatibility</li>
-            </ul>
-            <div class="tl-tags">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>UI/UX</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="tl-marker">
-            <div class="tl-dot"></div>
-            <div class="tl-line"></div>
-          </div>
-          <div class="tl-content">
-            <div class="tl-meta">
-              <span class="tl-date">Feb 2024 — Dec 2025</span>
-              <span class="tl-type">Internship</span>
-            </div>
-            <h3 class="tl-role">IT Coordinator Intern</h3>
-            <div class="tl-company">SPS Education System</div>
-            <ul class="tl-list">
-              <li>Assisted in managing school IT systems and digital resources</li>
-              <li>Maintained website-related and technical operations</li>
-              <li>Provided technical support and coordination</li>
-              <li>Assisted in digital documentation and system organization</li>
-            </ul>
-            <div class="tl-tags">
-              <span>IT Support</span><span>Web</span><span>Documentation</span>
-            </div>
-          </div>
-        </div>
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
 
-        <div class="timeline-item">
-          <div class="tl-marker">
-            <div class="tl-dot"></div>
           </div>
-          <div class="tl-content">
-            <div class="tl-meta">
-              <span class="tl-date">Mar 2024 — Mar 2028</span>
-              <span class="tl-type">Education</span>
-            </div>
-            <h3 class="tl-role">BS Software Engineering</h3>
-            <div class="tl-company">COMSATS University Islamabad</div>
-            <ul class="tl-list">
-              <li>Member — Microsoft Learn Student Ambassadors</li>
-              <li>Member — SoftTech Society</li>
-            </ul>
-            <div class="tl-tags">
-              <span>Software Engineering</span><span>MLSA</span>
-            </div>
-          </div>
+
         </div>
 
       </div>
+
     </div>
+
   </section>
 
-  <!-- Projects -->
-  <section class="projects section" id="projects">
+  <!-- PROJECTS -->
+  <section class="section projects" id="projects">
+
     <div class="container">
-      <div class="section-label">03 / Projects</div>
-      <h2 class="section-heading">Things I've<br /><em>built.</em></h2>
+
+      <div class="section-label">
+        Projects
+      </div>
+
+      <h2 class="section-heading">
+        Some featured <em>work</em>
+      </h2>
+
       <div class="projects-grid">
 
-        <div class="project-card" data-num="01">
+        <!-- PROJECT -->
+        <div class="project-card featured" data-num="01">
+
           <div class="pc-top">
-            <div class="pc-icon">🏫</div>
-            <div class="pc-links"><span class="pc-tag">Web App</span></div>
-          </div>
-          <h3>School Management Website</h3>
-          <p>A modern and responsive frontend for a school management system featuring admissions, academics, gallery, faculty, and parent resource pages.</p>
-          <div class="pc-tech">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive</span>
-          </div>
-        </div>
-
-        <div class="project-card featured" data-num="02">
-          <div class="pc-top">
-            <div class="pc-icon">🤖</div>
-            <div class="pc-links"><span class="pc-tag pc-featured">Featured</span></div>
-          </div>
-          <h3>AI Chatbot Interface</h3>
-          <p>A chatbot frontend interface with modern UI concepts and interactive design elements built for educational and problem-solving purposes.</p>
-          <div class="pc-tech">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span>
-          </div>
-        </div>
-
-        <div class="project-card" data-num="03">
-          <div class="pc-top">
-            <div class="pc-icon">🧑‍💻</div>
-            <div class="pc-links"><span class="pc-tag">Portfolio</span></div>
-          </div>
-          <h3>Portfolio Website</h3>
-          <p>A personal portfolio website designed and developed to showcase development projects, skills, and design work with a clean, modern aesthetic.</p>
-          <div class="pc-tech">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span>
-          </div>
-        </div>
-
-        <div class="project-card" data-num="04">
-          <div class="pc-top">
-            <div class="pc-icon">🛒</div>
-            <div class="pc-links"><span class="pc-tag">E-Commerce</span></div>
-          </div>
-          <h3>E-Commerce Website UI</h3>
-          <p>A responsive e-commerce frontend design featuring modern layouts, product showcase sections, and mobile-first compatibility throughout.</p>
-          <div class="pc-tech">
-            <span>HTML</span><span>CSS</span><span>Bootstrap</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="skills section" id="skills">
-    <div class="container">
-      <div class="section-label">04 / Skills</div>
-      <h2 class="section-heading">What I<br /><em>work with.</em></h2>
-      <div class="skills-layout">
-        <div class="skill-group">
-          <div class="sg-label">Frontend Development</div>
-          <div class="sg-items">
-            <div class="skill-pill"><span class="sp-icon">⚡</span>HTML5</div>
-            <div class="skill-pill"><span class="sp-icon">🎨</span>CSS3</div>
-            <div class="skill-pill"><span class="sp-icon">🔧</span>JavaScript</div>
-            <div class="skill-pill"><span class="sp-icon">⚛️</span>React.js</div>
-            <div class="skill-pill"><span class="sp-icon">📱</span>Bootstrap</div>
-            <div class="skill-pill"><span class="sp-icon">📐</span>Responsive Design</div>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="sg-label">Tools & Technologies</div>
-          <div class="sg-items">
-            <div class="skill-pill"><span class="sp-icon">🐙</span>Git &amp; GitHub</div>
-            <div class="skill-pill"><span class="sp-icon">🖌️</span>Figma</div>
-            <div class="skill-pill"><span class="sp-icon">✏️</span>Canva Pro</div>
-            <div class="skill-pill"><span class="sp-icon">🖼️</span>Adobe Photoshop</div>
-            <div class="skill-pill"><span class="sp-icon">📊</span>MS Office</div>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="sg-label">Soft Skills</div>
-          <div class="sg-items">
-            <div class="skill-pill"><span class="sp-icon">🎯</span>UI/UX Design</div>
-            <div class="skill-pill"><span class="sp-icon">🧩</span>Problem Solving</div>
-            <div class="skill-pill"><span class="sp-icon">🤝</span>Team Collaboration</div>
-            <div class="skill-pill"><span class="sp-icon">🎨</span>Graphic Design</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="certs">
-        <div class="certs-label">Certifications</div>
-        <div class="certs-grid">
-          <div class="cert-card">
-            <div class="cert-issuer">freeCodeCamp</div>
-            <div class="cert-name">Responsive Web Design</div>
-            <div class="cert-badge">✓ Earned</div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-issuer">freeCodeCamp</div>
-            <div class="cert-name">JavaScript Algorithms &amp; Data Structures</div>
-            <div class="cert-badge">✓ Earned</div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-issuer">Harvard University</div>
-            <div class="cert-name">CS50 Introduction to Computer Science</div>
-            <div class="cert-badge in-progress">⏳ In Progress</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="section-label">05 / Contact</div>
-      <div class="contact-inner">
-        <div class="contact-text">
-          <h2 class="section-heading">Let's build<br />something<br /><em>together.</em></h2>
-          <p>I'm always open to new opportunities, collaborations, and interesting projects. Whether it's a frontend role, freelance work, or just a chat — feel free to reach out.</p>
-          <div class="contact-links">
-            <a href="mailto:tehseenhamid11@gmail.com" class="cl-item">
-              <span class="cl-icon">📧</span>
-              <span>tehseenhamid11@gmail.com</span>
-            </a>
-            <a href="https://www.linkedin.com/in/tehseen-hamid-088399322/" target="_blank" class="cl-item">
-              <span class="cl-icon">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </span>
-              <span>Tehseen Hamid — LinkedIn</span>
-            </a>
-            <a href="https://github.com/tehseenhamid" target="_blank" class="cl-item">
-              <span class="cl-icon">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </span>
-              <span>tehseenhamid — GitHub</span>
-            </a>
-            <a href="https://wa.me/923276099669" target="_blank" class="cl-item cl-item--wa">
-              <span class="cl-icon">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              </span>
-              <span>+92 327 609 9669 — WhatsApp</span>
-            </a>
-          </div>
-        </div>
-        <div class="contact-cta">
-          <div class="cta-box">
-            <div class="cta-label">Available for</div>
-            <div class="cta-items">
-              <div class="cta-item">Frontend Development Roles</div>
-              <div class="cta-item">Internships</div>
-              <div class="cta-item">Freelance Projects</div>
-              <div class="cta-item">Collaborations</div>
+            <div class="pc-icon">
+              💻
             </div>
-            <a href="mailto:tehseenhamid11@gmail.com" class="btn-primary full-width">Send a Message</a>
-            <a href="https://wa.me/923276099669" target="_blank" class="btn-whatsapp full-width">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              Chat on WhatsApp
-            </a>
+
+            <div class="pc-tag pc-featured">
+              Featured
+            </div>
           </div>
+
+          <h3>
+            Modern Portfolio Website
+          </h3>
+
+          <p>
+            A modern responsive portfolio website with smooth animations,
+            dark theme UI, and interactive effects.
+          </p>
+
+          <div class="pc-tech">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+
         </div>
+
+        <!-- PROJECT -->
+        <div class="project-card" data-num="02">
+
+          <div class="pc-top">
+            <div class="pc-icon">
+              🚀
+            </div>
+
+            <div class="pc-tag">
+              Frontend
+            </div>
+          </div>
+
+          <h3>
+            School Website
+          </h3>
+
+          <p>
+            Fully responsive school website with animations,
+            modern layout, and user-friendly navigation.
+          </p>
+
+          <div class="pc-tech">
+            <span>React</span>
+            <span>CSS</span>
+            <span>Firebase</span>
+          </div>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- SKILLS -->
+  <section class="section skills" id="skills">
+
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-logo">TH<span class="dot">.</span></div>
-        <div class="footer-text">Designed &amp; Built by <strong>Tehseen Hamid</strong> — 2025</div>
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/tehseen-hamid-088399322/" target="_blank" aria-label="LinkedIn">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://github.com/tehseenhamid" target="_blank" aria-label="GitHub">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          </a>
-          <a href="https://wa.me/923276099669" target="_blank" aria-label="WhatsApp">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-          </a>
-        </div>
+
+      <div class="section-label">
+        Skills
       </div>
+
+      <h2 class="section-heading">
+        Technologies I <em>use</em>
+      </h2>
+
+      <div class="skills-layout">
+
+        <!-- GROUP -->
+        <div>
+
+          <div class="sg-label">
+            Frontend
+          </div>
+
+          <div class="sg-items">
+
+            <div class="skill-pill">
+              <span class="sp-icon">⚡</span>
+              HTML5
+            </div>
+
+            <div class="skill-pill">
+              <span class="sp-icon">🎨</span>
+              CSS3
+            </div>
+
+            <div class="skill-pill">
+              <span class="sp-icon">🧠</span>
+              JavaScript
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- GROUP -->
+        <div>
+
+          <div class="sg-label">
+            Frameworks
+          </div>
+
+          <div class="sg-items">
+
+            <div class="skill-pill">
+              <span class="sp-icon">⚛️</span>
+              React JS
+            </div>
+
+            <div class="skill-pill">
+              <span class="sp-icon">🔥</span>
+              Firebase
+            </div>
+
+            <div class="skill-pill">
+              <span class="sp-icon">🌐</span>
+              Responsive Design
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- GROUP -->
+        <div>
+
+          <div class="sg-label">
+            Other Skills
+          </div>
+
+          <div class="sg-items">
+
+            <div class="skill-pill">
+              <span class="sp-icon">🎬</span>
+              AI Video Creation
+            </div>
+
+            <div class="skill-pill">
+              <span class="sp-icon">📈</span>
+              LinkedIn Content
+            </div>
+
+            <div class="skill-pill">
+              <span class="sp-icon">💡</span>
+              UI/UX Design
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+
+    <div class="container">
+
+      <div class="contact-inner">
+
+        <!-- LEFT -->
+        <div class="contact-text">
+
+          <div class="section-label">
+            Contact
+          </div>
+
+          <h2 class="section-heading">
+            Let's build something <em>great</em>
+          </h2>
+
+          <p>
+            Feel free to contact me for collaborations,
+            freelance work, or project discussions.
+          </p>
+
+          <div class="contact-links">
+
+            <a href="mailto:your@email.com" class="cl-item">
+              <span class="cl-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+
+              your@email.com
+            </a>
+
+            <a href="#" class="cl-item">
+              <span class="cl-icon">
+                <i class="fab fa-linkedin"></i>
+              </span>
+
+              LinkedIn Profile
+            </a>
+
+            <a href="#" class="cl-item cl-item--wa">
+              <span class="cl-icon">
+                <i class="fab fa-whatsapp"></i>
+              </span>
+
+              WhatsApp Chat
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="cta-box">
+
+          <div class="cta-label">
+            Available Services
+          </div>
+
+          <div class="cta-items">
+
+            <div class="cta-item">
+              Frontend Web Development
+            </div>
+
+            <div class="cta-item">
+              Responsive Website Design
+            </div>
+
+            <div class="cta-item">
+              Portfolio Development
+            </div>
+
+            <div class="cta-item">
+              LinkedIn Branding
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div class="footer-logo">
+          Mr<span class="dot">.</span>Seen
+        </div>
+
+        <div class="footer-text">
+          © 2026 Muhammad Tehseen. All rights reserved.
+        </div>
+
+        <div class="footer-socials">
+
+          <a href="#">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </footer>
 
-  <script src="main.js"></script>
+  <!-- JS -->
+  <script>
+
+    // MOBILE NAV
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+
+    hamburger.addEventListener("click", () => {
+      mobileNav.classList.toggle("open");
+    });
+
+    // NAV SCROLL
+    const nav = document.querySelector(".nav");
+
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // CUSTOM CURSOR
+    const cursor = document.querySelector(".cursor");
+    const follower = document.querySelector(".cursor-follower");
+
+    document.addEventListener("mousemove", (e) => {
+
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+
+      follower.style.left = e.clientX + "px";
+      follower.style.top = e.clientY + "px";
+    });
+
+    // FADE ANIMATION
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+        }
+
+      });
+
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".fade-in-up").forEach(el => {
+      observer.observe(el);
+    });
+
+  </script>
+
 </body>
 </html>
+```
