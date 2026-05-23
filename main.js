@@ -30,13 +30,13 @@ document.querySelectorAll('a, button, .skill-pill, .project-card, .cert-card, .c
     if (!cursor || !follower) return;
     cursor.style.transform = 'translate(-50%, -50%) scale(2)';
     follower.style.transform = 'translate(-50%, -50%) scale(1.5)';
-    follower.style.borderColor = 'rgba(232,213,163,0.6)';
+    follower.style.borderColor = 'rgba(228,195,173,0.6)';
   });
   el.addEventListener('mouseleave', () => {
     if (!cursor || !follower) return;
     cursor.style.transform = 'translate(-50%, -50%) scale(1)';
     follower.style.transform = 'translate(-50%, -50%) scale(1)';
-    follower.style.borderColor = 'rgba(232,213,163,0.4)';
+    follower.style.borderColor = 'rgba(228,195,173,0.4)';
   });
 });
 
